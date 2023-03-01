@@ -25,8 +25,12 @@
                             <table class="datatable table table-borderless hover-table" id="data-tables">
                                 <thead class="thead-light" align="center">
                                     <tr>
-                                        <th> Nombre </th>
+                                        <th> Nombre completo</th>
                                         <th> Email </th>
+                                        <th> Dirección </th>
+                                        <th> Teléfono </th>
+                                        <th> Rol </th>
+                                        <th> Estatus </th>
                                         <th> Fecha de creación </th>
                                         <th> Acciones </th>
                                     </tr>
@@ -36,19 +40,20 @@
                                         <tr>
                                             <td> {{ $user->name }} {{ $user->first_surname }} {{ $user->second_surname }}</td>
                                             <td> {{ $user->email }} </td>
+                                            <td> {{ $user->address }} </td>
+                                            <td> {{ $user->phone }} </td>
+                                            <td> {{ $user->role_id }} </td>
+                                            <td>
+                                                @if ($user->status_id)
+                                                    <span class="badge bg-badge-grey text-success"><i class="fas fa-circle me-1"></i> Activo </span>
+                                                @else
+                                                    <span class="badge bg-badge-grey text-danger"><i class="fas fa-circle me-1"></i> Inactivo </span>
+                                                @endif
+                                            </td>
                                             <td> {{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }} </td>
                                             <td>
-                                                <div class="table-action">
-                                                    {{-- <button type="button" class="btn btn-sm btn-secondary btn-rounded" onclick="edit({{$user->id}})"><i class="far fa-edit"></i> Editar </button> --}}
-                                                    <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}" id="formDeleteUser">
-                                                        @csrf
-                                                        @method('DELETE')
-
-                                                        <div class="form-group">
-                                                            <button type="submit" class="btn btn-sm btn-danger btn-rounded text-white" onclick="return confirm('¿Está seguro de eliminar a este usuario?');"><i class="far fa-trash-alt"></i> Eliminar</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                <a type="button" class="btn btn-danger btn-rounded btn-sm" id="btnDelete"><i class="far fa-trash-alt"></i> Eliminar</a>
+                                                <a type="button" class="btn btn-warning btn-rounded btn-sm" href="{{ route('user.edit',['user' => $user->id]) }}"><i class="feather-eye"></i> Detalle </a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -62,6 +67,6 @@
         <div id="tablepagination"  class="dataTables_wrapper"></div>
     </div>
     @include('admin.modal.create_user')
-    @include('admin.modal.edit_user')
+    {{-- @include('admin.modal.edit_user') --}}
 
 @endsection

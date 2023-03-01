@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>@yield('title', 'PROJECT')</title>
+        <title>@yield('title', 'CRESER')</title>
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
@@ -130,10 +130,8 @@
                             >
 								<a href=""><i class="feather-code"></i> <span>Menú 2</span></a>
 							</li>
-                            <li
-                            {{-- @if(Route::is('user.index')) class='active' @endif --}}
-                            >
-								<a href=""><i class="feather-user"></i> <span> Usuarios </span></a>
+                            <li @if(Route::is('user.index')) class='active' @endif>
+								<a href="{{ route('user.index') }}"><i class="feather-user"></i> <span> Usuarios </span></a>
 							</li>
                             {{-- <li @if(Route::is('report.index')) class='active' @endif>
 								<a href="{{ route('report.index') }}"><i class="feather-file-text"></i> <span> Reportes </span></a>
@@ -165,6 +163,8 @@
 
         <!-- jQuery -->
 		<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/form-validation.js') }}"></script>
 
 		<!-- Bootstrap Core JS -->
 		<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>

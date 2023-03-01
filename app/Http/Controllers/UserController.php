@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -18,8 +19,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        $roles = Role::all();
 
-        return view('admin.users.index', compact('users'));
+        return view('admin.users.index', compact('users', 'roles'));
     }
 
     /**
@@ -41,20 +43,26 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
+        // dd($request->all());
+
         $input = $request->all();
 
         $rules = [
-            'name'          => 'required',
-            'first_surname' => 'required',
-            'email'         => 'required|email|unique:users',
-            'password'      => 'required'
+            'name'       => 'required',
+            'first_name' => 'required',
+            'email'      => 'required|email|unique:users',
+            'role_id'    => 'required',
+            'address'    => 'required',
+            'phone'      => 'required'
         ];
 
         $messages = [
-            'name.required'        => 'El nombre es un campo requerido',
-            'first_surname.unique' => 'El primer apellido es un campo requerido',
-            'email.required'       => 'El correo electrónico es un campo requerido',
-            'password.required'    => 'La contraseña es un campo requerido',
+            'name.required'     => 'El nombre es un campo requerido',
+            'first_name.unique' => 'El primer apellido es un campo requerido',
+            'email.required'    => 'El correo electrónico es un campo requerido',
+            'role_id.required'  => 'El rol es un campo requerido',
+            'address.required'  => 'La dirección es un campo requerido',
+            'phone.required'  => 'La dirección es un campo requerido'
         ];
 
         $validator = Validator::make($input, $rules, $messages);
@@ -70,9 +78,13 @@ class UserController extends Controller
             $user = new User();
             $user->name = $request->name;
             $user->first_surname = $request->first_surname;
-            $user->second_surname = $request->second_surname;
+            $user->second_surname =  (isset($request->second_surname)) ? $request->second_name : "" ;
             $user->email = $request->email;
-            $user->password = bcrypt($request->password);
+            $user->role_id = $request->role_id;
+            $user->address = $request->address;
+            $user->phone = $request->phone;
+            $user->status_id = 1;
+            $user->password = bcrypt('12345678');
 
             $user->save();
 
