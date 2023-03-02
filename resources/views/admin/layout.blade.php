@@ -125,10 +125,8 @@
                             >
 								<a href=""><i class="feather-code"></i> <span>Menú 1</span></a>
 							</li>
-                            <li
-                            {{-- @if(Route::is('campaigns-plan.index') || Route::is('campaigns-plan.create') || Route::is('campaigns-plan.edit')) class='active' @endif --}}
-                            >
-								<a href=""><i class="feather-code"></i> <span>Menú 2</span></a>
+                            <li @if(Route::is('product.index')) class='active' @endif>
+								<a href="{{ route('product.index') }}"><i class="feather-box"></i> <span> Productos </span></a>
 							</li>
                             <li @if(Route::is('user.index')) class='active' @endif>
 								<a href="{{ route('user.index') }}"><i class="feather-user"></i> <span> Usuarios </span></a>
