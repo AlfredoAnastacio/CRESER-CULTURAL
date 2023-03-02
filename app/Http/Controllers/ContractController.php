@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contract;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ContractController extends Controller
@@ -24,7 +25,10 @@ class ContractController extends Controller
      */
     public function create()
     {
-        return view('admin.contract.add');
+
+        $products = Product::all();
+
+        return view('admin.contract.add', compact('products'));
     }
 
     /**

@@ -29,6 +29,8 @@
 
         <link rel="stylesheet" href="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.css') }}">
 
+        <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css') }}">
+
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
@@ -197,6 +199,7 @@
 		<script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
 
         <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.js') }}"></script>
 
 		<!-- Custom JS -->
 		<script src="{{ asset('assets/js/script.js') }}"></script>
