@@ -120,10 +120,8 @@
 					<div id="sidebar-menu" class="sidebar-menu">
 						<ul>
 							<li class="menu-title"><span> Principal </span></li>
-							<li
-                            {{-- @if(Route::is('campaigns.index') || Route::is('campaigns.create') || Route::is('campaigns.edit')) class='active' @endif --}}
-                            >
-								<a href=""><i class="feather-code"></i> <span>Menú 1</span></a>
+							<li @if(Route::is('contract.index') || Route::is('contract.create')) class='active' @endif>
+								<a href="{{ route('contract.index') }}"><i class="feather-file"></i> <span>Contratos</span></a>
 							</li>
                             <li @if(Route::is('product.index')) class='active' @endif>
 								<a href="{{ route('product.index') }}"><i class="feather-box"></i> <span> Productos </span></a>
