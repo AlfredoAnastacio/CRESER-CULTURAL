@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\SerieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', UserController::class);
     Route::resource('product', ProductController::class);
     Route::resource('contract', ContractController::class);
+    Route::resource('serie', SerieController::class);
 });

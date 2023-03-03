@@ -128,6 +128,9 @@
                             <li @if(Route::is('product.index')) class='active' @endif>
 								<a href="{{ route('product.index') }}"><i class="feather-box"></i> <span> Productos </span></a>
 							</li>
+                            <li @if(Route::is('serie.index')) class='active' @endif>
+								<a href="{{ route('serie.index') }}"><i class="feather-hash"></i> <span> Series </span></a>
+							</li>
                             <li @if(Route::is('user.index')) class='active' @endif>
 								<a href="{{ route('user.index') }}"><i class="feather-user"></i> <span> Usuarios </span></a>
 							</li>
