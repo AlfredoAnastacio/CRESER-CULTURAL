@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\SerieController;
+use App\Http\Controllers\TemplateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('product', ProductController::class);
     Route::resource('contract', ContractController::class);
     Route::resource('serie', SerieController::class);
+
+    //Formatos
+    Route::get('formato/carta/tarjeta/creser', [TemplateController::class, 'cartaConTarjetaCreser'])->name('cartaConTarjetaCreser');
 });

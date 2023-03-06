@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title> Códigos </title>
+        <title> CRE-SER CULTURAL </title>
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
@@ -45,7 +45,7 @@
 
                                 <div class="form-group form-focus">
                                     <label class="focus-label">Email</label>
-									<input id="email" type="email" class="form-control floating @error('email') is-invalid @enderror" name="email" value="admin@gmail.com" required autofocus>
+									<input id="email" type="email" class="form-control floating @error('email') is-invalid @enderror" name="email" value="alicia@gmail.com" required autofocus>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

@@ -134,9 +134,9 @@
                             <li @if(Route::is('user.index')) class='active' @endif>
 								<a href="{{ route('user.index') }}"><i class="feather-user"></i> <span> Usuarios </span></a>
 							</li>
-                            {{-- <li @if(Route::is('report.index')) class='active' @endif>
-								<a href="{{ route('report.index') }}"><i class="feather-file-text"></i> <span> Reportes </span></a>
-							</li> --}}
+                            <li>
+								<a href="{{ route('cartaConTarjetaCreser') }}" target="_blank"><i class="feather-file-text"></i> <span> Reportes </span></a>
+							</li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
